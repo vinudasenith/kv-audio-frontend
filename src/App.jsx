@@ -1,18 +1,27 @@
-
-import './App.css'
-import ProductCard from './components/productCard'
+import './App.css';
+import { MdOutlineBluetoothAudio } from "react-icons/md";
+import { ImParagraphJustify } from "react-icons/im";
+import { BsFillSaveFill } from "react-icons/bs";
+import { RiAlignItemBottomLine } from "react-icons/ri";
+import { FaUser } from "react-icons/fa";
 
 function App() {
-
   return (
-    <div>
-      <ProductCard name="Sound Mixer HI-L003" price="15,650" description="Ideal for music production, live performances" photoURL="https://tse4.mm.bing.net/th?id=OIP.WRdQpB0GpvZcsfKTG9XcRgHaEK&pid=Api&P=0&h=220" />
+    <div className="w-full h-screen flex">
+      <div className="w-[400px] h-full bg-green-500">
+        <button className="w-full h-[40px] text-[20px] font-bold  flex justify-center items-center"><ImParagraphJustify />Dashboard</button>
+        <button className="w-full h-[40px] text-[25px] font-bold  flex justify-center"><BsFillSaveFill /> Bookings</button>
+        <button className="w-full h-[40px] text-[25px] font-bold  flex justify-center "><RiAlignItemBottomLine /> Items</button>
+        <button className="w-full h-[40px] text-[25px] font-bold  flex justify-center "><FaUser />Users</button>
+      </div>
 
-      <ProductCard name="Head Sst Bluetooth 2025 JBL" price="15,650" description="Ideal for music production, live performances" photoURL="https://img.drz.lazcdn.com/static/lk/p/bbe9b7889dfd6581c37ecc1d030e1e23.jpg_720x720q80.jpg_.webp" />
+      <div className="w-full bg-red-900">
+        <MdOutlineBluetoothAudio className="text-[300px] text-white" />
+      </div>
 
 
     </div>
   )
 }
 
-export default App
+export default App;
