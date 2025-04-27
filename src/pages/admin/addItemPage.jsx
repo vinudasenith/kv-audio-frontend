@@ -1,12 +1,43 @@
+import axios from "axios";
 import { useState } from "react";
+import toast from "react-hot-toast";
 
 export default function AddItemPage() {
     const [productKey, setProductKey] = useState("");
     const [productName, setProductName] = useState("");
-    const [productPrice, setProductPrice] = useState("");
-    const [productCategory, setProductCategory] = useState("");
+    const [productPrice, setProductPrice] = useState(0);
+    const [productCategory, setProductCategory] = useState("audio");
     const [productDimension, setProductDimension] = useState("");
     const [productDescription, setProductDescription] = useState("");
+
+    async function handleAddItem() {
+        console.log(productKey, productName, productPrice, productCategory, productDimension, productDescription);
+        const token = localStorage.getItem("token");
+
+        if (token) {
+            try {
+                const result = await axios.post("http://localhost:3000/api/products", {
+                    key: productKey,
+                    name: productName,
+                    price: productPrice,
+                    category: productCategory,
+                    dimensions: productDimension,
+                    description: productDescription
+                }, {
+                    headers: {
+                        Authorization: "Bearer " + token
+                    }
+                });
+                toast.success(result.data.message);
+
+            } catch (err) {
+                toast.error(err.response.data.error);
+            }
+        } else {
+            toast.error("You are not authorized to add items");
+        }
+    }
+
 
     return (
         <div className="w-full h-full flex flex-col items-center">
@@ -27,7 +58,7 @@ export default function AddItemPage() {
                     className="border p-2 rounded"
                 />
                 <input
-                    type="text"
+                    type="number"
                     placeholder="Product Price"
                     value={productPrice}
                     onChange={(e) => setProductPrice(e.target.value)}
@@ -56,7 +87,7 @@ export default function AddItemPage() {
                     onChange={(e) => setProductDescription(e.target.value)}
                     className="border p-2 rounded"
                 />
-                <button className="bg-blue-500 text-white p-2 rounded hover:bg-blue-600">
+                <button onClick={handleAddItem} className="bg-blue-500 text-white p-2 rounded hover:bg-blue-600">
                     Add
                 </button>
                 <button className="bg-red-500 text-white p-2 rounded hover:bg-red-600">
