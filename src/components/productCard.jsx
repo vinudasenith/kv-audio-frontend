@@ -29,7 +29,7 @@ export default function ProductCard({ item }) {
 
                 {/* Rounded View Details Button */}
                 <div className="pt-1 text-center">
-                    <button className="px-4 py-1 text-xs text-white bg-blue-600 rounded-full hover:bg-blue-700 focus:outline-none">
+                    <button className="px-4 py-1 text-xs text-white bg-blue-600  hover:bg-blue-700 focus:outline-none">
                         View Details
                     </button>
                 </div>
