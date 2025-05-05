@@ -11,6 +11,7 @@ import Testing from './components/testing';
 import LoginPage from './pages/login/login';
 import { Toaster } from 'react-hot-toast';
 import RegisterPage from './pages/register/register';
+import ProductOverview from './pages/home/productOverview';
 
 
 function App() {
