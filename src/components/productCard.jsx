@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function ProductCard({ item }) {
     return (
         <div className="w-56 bg-white shadow rounded-md overflow-hidden hover:shadow-md transition duration-300 border border-gray-200 m-2">
@@ -29,9 +31,9 @@ export default function ProductCard({ item }) {
 
                 {/* Rounded View Details Button */}
                 <div className="pt-1 text-center">
-                    <button className="px-4 py-1 text-xs text-white bg-blue-600  hover:bg-blue-700 focus:outline-none">
+                    <Link to={"/product/" + item.key} className="px-4 py-1 text-xs text-white bg-blue-600  hover:bg-blue-700 focus:outline-none">
                         View Details
-                    </button>
+                    </Link>
                 </div>
             </div>
         </div>

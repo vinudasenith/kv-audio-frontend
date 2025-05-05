@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { useNavigate, useLocation } from "react-router-dom";
+import mediaUpload from "../../utils/mediaUpload";
 
 export default function UpdateItemPage() {
     const location = useLocation()
@@ -13,10 +14,29 @@ export default function UpdateItemPage() {
     const [productCategory, setProductCategory] = useState(location.state.category);
     const [productDimension, setProductDimension] = useState(location.state.dimensions);
     const [productDescription, setProductDescription] = useState(location.state.description);
+    const [productImages, setProductImages] = useState([]);
     const navigate = useNavigate();
 
 
-    async function handleAddItem() {
+    async function handleUpdateItem() {
+
+        let updatingImages = location.state.image
+
+
+        if (productImages.length > 0) {
+            const promises = [];
+
+            for (let i = 0; i < productImages.length; i++) {
+                console.log(productImages[i]);
+                const promise = mediaUpload(productImages[i]);
+                promises.push(promise);
+
+            }
+
+            updatingImages = await Promise.all(promises);
+        }
+
+
         console.log(productKey, productName, productPrice, productCategory, productDimension, productDescription);
         const token = localStorage.getItem("token");
 
@@ -28,7 +48,8 @@ export default function UpdateItemPage() {
                     price: productPrice,
                     category: productCategory,
                     dimensions: productDimension,
-                    description: productDescription
+                    description: productDescription,
+                    image: updatingImages
                 }, {
                     headers: {
                         Authorization: "Bearer " + token
@@ -95,7 +116,9 @@ export default function UpdateItemPage() {
                     onChange={(e) => setProductDescription(e.target.value)}
                     className="border p-2 rounded"
                 />
-                <button onClick={handleAddItem} className="bg-blue-500 text-white p-2 rounded hover:bg-blue-600">
+                <input type="file" multiple onChange={(e) => setProductImages(e.target.files)} className="w-full p-2 border rounded" />
+
+                <button onClick={handleUpdateItem} className="bg-blue-500 text-white p-2 rounded hover:bg-blue-600">
                     Update Item
                 </button>
                 <button onClick={() => { navigate("/admin/items/") }} className="bg-red-500 text-white p-2 rounded hover:bg-red-600">
