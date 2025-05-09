@@ -12,6 +12,8 @@ import LoginPage from './pages/login/login';
 import { Toaster } from 'react-hot-toast';
 import RegisterPage from './pages/register/register';
 import ProductOverview from './pages/home/productOverview';
+import BookingPage from './pages/home/bookingPage';
+import AdminUsersPage from './pages/admin/adminUsersPage';
 
 
 function App() {
@@ -24,6 +26,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/admin/*" element={<AdminPage />} />
         <Route path="/*" element={<HomePage />} />
+
         <Route path="/register" element={<RegisterPage />} />
       </Routes>
     </BrowserRouter>
