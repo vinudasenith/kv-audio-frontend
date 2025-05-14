@@ -14,22 +14,27 @@ import RegisterPage from './pages/register/register';
 import ProductOverview from './pages/home/productOverview';
 import BookingPage from './pages/home/bookingPage';
 import AdminUsersPage from './pages/admin/adminUsersPage';
+import { GoogleOAuthProvider } from '@react-oauth/google';
+import VerifyEmail from './pages/verifyEmail/verifyEmail';
 
 
 function App() {
   return (
-    <BrowserRouter>
-      <Toaster position='top-right' />
-      <Routes path="/*">
+    <GoogleOAuthProvider clientId="625303778806-1gldea682tl2nhsal45qnqvsh06mckmj.apps.googleusercontent.com">
+      <BrowserRouter>
+        <Toaster position='top-right' />
+        <Routes path="/*">
 
-        <Route path="/testing" element={<Testing />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/admin/*" element={<AdminPage />} />
-        <Route path="/*" element={<HomePage />} />
+          <Route path="/testing" element={<Testing />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/admin/*" element={<AdminPage />} />
+          <Route path="/*" element={<HomePage />} />
+          <Route path="/verify-email" element={<VerifyEmail />} />
 
-        <Route path="/register" element={<RegisterPage />} />
-      </Routes>
-    </BrowserRouter>
+          <Route path="/register" element={<RegisterPage />} />
+        </Routes>
+      </BrowserRouter>
+    </GoogleOAuthProvider>
   );
 }
 
