@@ -27,7 +27,7 @@ export default function RegisterPage() {
 
         }).then((res) => {
             toast.success("Account created successfully");
-            navigate("/loginPage");
+            navigate("/login");
         }).catch((err) => {
             toast.error(err?.response?.data?.error || "Something went wrong");
         })

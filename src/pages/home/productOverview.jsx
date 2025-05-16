@@ -27,24 +27,28 @@ export default function ProductOverview() {
         <div className="w-full h-full flex justify-center">
             {
                 loadingStatus === "loading" &&
-                <div className="w-full h-full flex justify-center items-center">
+                <div className="w-full h-full flex  justify-center items-center">
                     <div className="w-[50px] h-[50px] border-4 border-gray-300 border-t-blue-500 rounded-full animate-spin"></div>
                 </div>
             }
             {
                 loadingStatus == "loaded" &&
-                <div className="w-full h-full flex justify-center items-center">
-                    <div className="w-[49%] h-full">
+                <div className=" w-full h-full  flex  flex-col md:flex-row justify-center items-center">
+                    <h1 className="text-2xl my-6 md:hidden  font-bold text-accent text-center ">{product.name}</h1>
+                    <div className="w-full md:w-[49%]">
                         <ImageSlider images={product.image} />
                     </div>
-
-                    <div className="w-[49%] h-full flex flex-col items-center">
-                        <h1 className="text-3xl font-bold text-accent">{product.name}</h1>
-                        <h2 className="text-3xl font-bold text-accent">{product.category}</h2>
-                        <p className="text-lg font-bold text-accent">{product.description}</p>
-                        <p className="text-lg font-bold text-accent">{product.dimensions}</p>
-                        <p className="text-lg font-bold text-accent">Rs. {product.price}</p>
-
+                    <div className="w-full md:w-[49%] p-2 flex flex-col items-center">
+                        <h1 className="hidden md:block text-3xl font-bold text-accent">{product.name}</h1>
+                        <h2 className="text-xl font-semibold text-gray-800">
+                            {product.category} category
+                        </h2>
+                        <p className="text-gray-700 mt-4 text-center">{product.description}</p>
+                        <p className="text-lg  text-green-500">Rs. {product.price.toFixed(2)}</p>
+                        <div className="mt-4 text-sm text-gray-600">
+                            <span className="font-medium">Dimensions:</span>{" "}
+                            {product.dimensions}
+                        </div>
 
                         <button
                             className="w-[200px] h-[50px] bg-blue-500 text-white py-2 mt-4 rounded-lg hover:bg-blue-600"
