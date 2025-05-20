@@ -1,52 +1,47 @@
-import axios from "axios"
-import { useEffect, useState } from "react"
+import axios from "axios";
+import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import ProductCard from "../../components/productCard";
 
-
 export default function Items() {
-    const [state, setState] = useState("loading")//loading,success,error
-    const [items, setItems] = useState([])
+    const [state, setState] = useState("loading");
+    const [items, setItems] = useState([]);
+
     useEffect(() => {
-        if (state == "loading") {
-            axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/products`).then((res) => {
-                console.log(res.data)
-                setItems(res.data)
-                setState("success")
-
-                // setState("success")
-
-            }).catch((err) => {
-                toast.error(err?.response?.data?.error || "Something went wrong")
-                setState("error")
-            })
+        if (state === "loading") {
+            axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/products`)
+                .then((res) => {
+                    console.log(res.data)
+                    setItems(res.data);
+                    setState("success");
+                })
+                .catch((err) => {
+                    toast.error(err?.response?.data?.error || "Something went wrong");
+                    setState("error");
+                });
         }
-    }, [])
+    }, []);
+
     return (
-        <div className="w-full h-full bg-white flex flex-wrap justify-center pt-[50px]">
+        <div className="w-full min-h-screen bg-gradient-to-b from-gray-900 to-black text-white flex flex-wrap justify-center gap-6 pt-[50px] px-4">
             {
-                state == "loading" &&
-                <div className="w-full h-full flex justify-center items-center">
-                    <div className="w-[50px] h-[50px] border-[3px]  rounded-full border-t-green-300 animate-spin ">
-                    </div>
+                state === "loading" &&
+                <div className="w-full h-[300px] flex justify-center items-center">
+                    <div className="w-[50px] h-[50px] border-4 border-gray-600 border-t-green-500 rounded-full animate-spin"></div>
                 </div>
             }
             {
-                state == "success" &&
+                state === "success" &&
                 items.map((item) => {
                     return (
                         <ProductCard key={item.key} item={item} />
-
-                    )
-
+                    );
                 })
             }
-
-
         </div>
-    )
-}
 
+    );
+}
 
 
 // {

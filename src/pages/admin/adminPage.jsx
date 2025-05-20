@@ -39,18 +39,30 @@ export default function AdminPage() {
     }, [])
     return (
         <div className="w-full h-screen flex">
-            {/* Sidebar on the left */}
-            <div className="w-[200px] h-full bg-green-500 flex flex-col items-start p-4">
-                <Link to="/admin" className="w-full h-[40px] text-[20px] font-bold flex items-center gap-2">
+
+            <div className="w-[220px] h-full bg-gradient-to-b from-gray-900 to-black text-yellow-400 shadow-lg flex flex-col items-start p-4 gap-2 border-r border-gray-800">
+                <Link
+                    to="/admin"
+                    className="w-full h-[45px] text-[18px] font-semibold flex items-center gap-3 px-3 rounded-lg hover:bg-yellow-400 hover:text-black transition duration-200"
+                >
                     <ImParagraphJustify /> Dashboard
                 </Link>
-                <Link to="/admin/orders" className="w-full h-[40px] text-[25px] font-bold flex items-center gap-2">
+                <Link
+                    to="/admin/orders"
+                    className="w-full h-[45px] text-[20px] font-semibold flex items-center gap-3 px-3 rounded-lg hover:bg-yellow-400 hover:text-black transition duration-200"
+                >
                     <BsFillSaveFill /> Orders
                 </Link>
-                <Link to="/admin/items" className="w-full h-[40px] text-[25px] font-bold flex items-center gap-2">
+                <Link
+                    to="/admin/items"
+                    className="w-full h-[45px] text-[20px] font-semibold flex items-center gap-3 px-3 rounded-lg hover:bg-yellow-400 hover:text-black transition duration-200"
+                >
                     <RiAlignItemBottomLine /> Items
                 </Link>
-                <Link to="/admin/users" className="w-full h-[40px] text-[25px] font-bold flex items-center gap-2">
+                <Link
+                    to="/admin/users"
+                    className="w-full h-[45px] text-[20px] font-semibold flex items-center gap-3 px-3 rounded-lg hover:bg-yellow-400 hover:text-black transition duration-200"
+                >
                     <FaUser /> Users
                 </Link>
             </div>

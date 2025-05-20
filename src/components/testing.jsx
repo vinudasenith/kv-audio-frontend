@@ -13,7 +13,7 @@ export default function Testing() {
 
 
     return (
-        <div className="w-full flex flex-col justify-center items-center h-screen">
+        <div className="w-full flex flex-col justify-center items-center h-screen bg-red-950">
             <input type="file" onChange={(e) => { console.log(setFile(e.target.files[0])) }} />
             <button onClick={uploadFile} className="w-[200px] h-[50px] bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600">Upload</button>
 

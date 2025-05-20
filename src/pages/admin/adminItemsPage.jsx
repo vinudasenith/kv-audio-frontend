@@ -62,7 +62,7 @@ export default function AdminItemsPage() {
                             <tr key={product.key} className="hover:bg-gray-50 transition">
                                 <td className="px-4 py-2 border-b">{product.key}</td>
                                 <td className="px-4 py-2 border-b">{product.name}</td>
-                                <td className="px-4 py-2 border-b">${product.price.toFixed(2)}</td>
+                                <td className="px-4 py-2 border-b">LKR{product.price.toFixed(2)}</td>
                                 <td className="px-4 py-2 border-b">{product.category}</td>
                                 <td className="px-4 py-2 border-b">{product.dimensions}</td>
                                 <td className="px-4 py-2 border-b">
