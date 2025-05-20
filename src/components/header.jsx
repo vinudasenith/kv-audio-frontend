@@ -25,7 +25,7 @@ export default function Header() {
 
 
             <nav className="hidden md:flex gap-10 font-medium text-lg">
-                <Link to="/home" className="hover:text-yellow-300 transition">
+                <Link to="/home" className="hover:text-yellow-250 transition">
                     Home
                 </Link>
                 <Link to="/items" className="hover:text-yellow-300 transition">
