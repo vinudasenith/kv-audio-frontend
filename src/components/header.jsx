@@ -28,10 +28,10 @@ export default function Header() {
                 <Link to="/home" className="hover:text-yellow-250 transition">
                     Home
                 </Link>
-                <Link to="/items" className="hover:text-yellow-300 transition">
+                <Link to="/items" className="hover:text-yellow-250 transition">
                     Rentals
                 </Link>
-                <Link to="/gallery" className="hover:text-yellow-300 transition">
+                <Link to="/gallery" className="hover:text-yellow-250 transition">
                     Gallery
                 </Link>
                 <Link to="/contact" className="hover:text-yellow-300 transition">
