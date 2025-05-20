@@ -58,42 +58,57 @@ export default function BookingPage() {
     }
 
     return (
-        <div className="w-full h-full flex flex-col items-center ">
-            <h1 className="text-2xl font-bold text-accent">Create Booking</h1>
-            <div className="w-full flex flex-col items-center gap-4 mt-4">
-                <label className="flex flex-col">
-                    <span className="text-accent font-semibold">Starting Date:</span>
-                    <input
-                        type="date"
-                        value={startingDate}
-                        onChange={(e) => setStartingDate(e.target.value)}
-                        className="border border-secondary rounded-md p-2"
-                    />
-                </label>
-                <label className="flex flex-col">
-                    <span className="text-accent font-semibold">Ending Date:</span>
-                    <input
-                        type="date"
-                        value={endingDate}
-                        onChange={(e) => setEndingDate(e.target.value)}
-                        className="border border-secondary rounded-md p-2"
-                    />
-                </label>
-                <p className="text-accent font-medium">Total Days: {daysBetween}</p>
+        <div className="w-full min-h-screen bg-gradient-to-b from-gray-900 to-black text-white flex flex-col items-center px-4 py-8">
+            <h1 className="text-3xl font-bold text-yellow-400 mb-6 drop-shadow">Create Booking</h1>
+
+            <div className="w-full max-w-xl bg-gray-800 rounded-xl p-6 shadow-lg flex flex-col items-center gap-6">
+                <div className="w-full flex flex-col gap-4">
+                    <label className="flex flex-col text-sm">
+                        <span className="text-yellow-300 font-semibold mb-1">Starting Date:</span>
+                        <input
+                            type="date"
+                            value={startingDate}
+                            onChange={(e) => setStartingDate(e.target.value)}
+                            className="bg-gray-900 border border-gray-600 text-white rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+                        />
+                    </label>
+                    <label className="flex flex-col text-sm">
+                        <span className="text-yellow-300 font-semibold mb-1">Ending Date:</span>
+                        <input
+                            type="date"
+                            value={endingDate}
+                            onChange={(e) => setEndingDate(e.target.value)}
+                            className="bg-gray-900 border border-gray-600 text-white rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+                        />
+                    </label>
+                </div>
+
+                <p className="text-yellow-300 font-medium text-lg">Total Days: {daysBetween}</p>
             </div>
-            <div className="w-full flex flex-col items-center mt-4">
+
+            <div className="w-full max-w-4xl mt-6 grid gap-4  justify-center">
                 {
                     cart.orderedItems.map((item) => {
-                        return <BookingItem itemKey={item.key} key={item.key} qty={item.qty} refresh={reloadCart} />
+                        return (
+                            <BookingItem itemKey={item.key} key={item.key} qty={item.qty} refresh={reloadCart} />
+                        );
                     })
                 }
             </div>
-            <div className="w-full flex justify-center mt-4">
-                <p className="text-accent font-semibold">Total: {total.toFixed(2)}</p>
+
+            <div className="w-full max-w-xl mt-6 text-center">
+                <p className="text-yellow-400 font-semibold text-xl">Total: LKR {total.toFixed(2)}</p>
             </div>
-            <div className="w-full flex justify-center mt-4">
-                <button className="bg-accent text-white px-4 py-2 rounded-md" onClick={handleBookingCreation}>Create Booking</button>
+
+            <div className="w-full max-w-xl mt-6 flex justify-center">
+                <button
+                    className="bg-yellow-400 hover:bg-yellow-500 text-black font-bold px-6 py-3 rounded-lg shadow transition duration-300"
+                    onClick={handleBookingCreation}
+                >
+                    Create Booking
+                </button>
             </div>
         </div>
+
     )
 }
