@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import ImageSlider from "../../components/imageSlider";
 import { addToCart, loadCart } from "../../utils/cart";
+import toast from "react-hot-toast";
 export default function ProductOverview() {
 
     const params = useParams();
@@ -24,36 +25,33 @@ export default function ProductOverview() {
 
     }, [])
     return (
-        <div className="w-full h-full flex justify-center">
+        <div className="w-full min-h-screen bg-gradient-to-b from-gray-900 to-black text-white flex justify-center p-4">
             {
                 loadingStatus === "loading" &&
-                <div className="w-full h-full flex  justify-center items-center">
-                    <div className="w-[50px] h-[50px] border-4 border-gray-300 border-t-blue-500 rounded-full animate-spin"></div>
+                <div className="w-full h-full flex justify-center items-center">
+                    <div className="w-[50px] h-[50px] border-4 border-gray-600 border-t-blue-500 rounded-full animate-spin"></div>
                 </div>
             }
             {
                 loadingStatus == "loaded" &&
-                <div className=" w-full h-full  flex  flex-col md:flex-row justify-center items-center">
-                    <h1 className="text-2xl my-6 md:hidden  font-bold text-accent text-center ">{product.name}</h1>
+                <div className="w-full max-w-6xl flex flex-col md:flex-row justify-center items-center gap-8">
+                    <h1 className="text-2xl my-6 md:hidden font-bold text-yellow-400 text-center">{product.name}</h1>
                     <div className="w-full md:w-[49%]">
                         <ImageSlider images={product.image} />
                     </div>
-                    <div className="w-full md:w-[49%] p-2 flex flex-col items-center">
-                        <h1 className="hidden md:block text-3xl font-bold text-accent">{product.name}</h1>
-                        <h2 className="text-xl font-semibold text-gray-800">
-                            {product.category} category
-                        </h2>
-                        <p className="text-gray-700 mt-4 text-center">{product.description}</p>
-                        <p className="text-lg  text-green-500">Rs. {product.price.toFixed(2)}</p>
-                        <div className="mt-4 text-sm text-gray-600">
-                            <span className="font-medium">Dimensions:</span>{" "}
-                            {product.dimensions}
+                    <div className="w-full md:w-[49%] p-4 flex flex-col items-center gap-4 bg-gray-800 rounded-lg shadow-lg">
+                        <h1 className="hidden md:block text-3xl font-bold text-yellow-400">{product.name}</h1>
+                        <h2 className="text-xl font-semibold text-gray-300">{product.category} category</h2>
+                        <p className="text-gray-400  text-justify">{product.description}</p>
+                        <p className="text-lg font-bold text-green-400">LKR {product.price.toFixed(2)}</p>
+                        <div className="text-sm text-gray-400">
+                            <span className="font-medium">Dimensions:</span> {product.dimensions}
                         </div>
-
                         <button
-                            className="w-[200px] h-[50px] bg-blue-500 text-white py-2 mt-4 rounded-lg hover:bg-blue-600"
+                            className="w-[200px] h-[50px] bg-yellow-500 text-black font-semibold rounded-lg hover:bg-yellow-600 transition duration-200"
                             onClick={() => {
                                 addToCart(product.key, 1);
+                                toast.success("Added to Cart");
                                 console.log(loadCart());
                                 window.location.href = "/booking";
                             }}
@@ -62,16 +60,14 @@ export default function ProductOverview() {
                         </button>
                     </div>
                 </div>
-
-
             }
             {
                 loadingStatus == "error" &&
                 <div className="w-full h-full flex justify-center items-center">
-                    <div className="w-[50px] h-[50px] border-4 border-gray-300 border-t-red-500 rounded-full animate-spin"></div>
+                    <div className="w-[50px] h-[50px] border-4 border-gray-600 border-t-red-500 rounded-full animate-spin"></div>
                 </div>
             }
-
         </div>
+
     )
 }
