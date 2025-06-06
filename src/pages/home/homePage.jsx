@@ -7,6 +7,7 @@ import Contact from "./contact";
 import Error from "./error";
 import ProductOverview from "./productOverview";
 import BookingPage from "./bookingPage";
+import ReviewPage from "./reviewPage";
 
 export default function HomePage() {
     return (
@@ -22,6 +23,7 @@ export default function HomePage() {
                     <Route path="/" element={<Home />} />
                     <Route path="/product/:key" element={<ProductOverview />} />
                     <Route path="/*" element={<Error />} />
+                    <Route path="/reviews" element={<ReviewPage />} />
                 </Routes>
             </div>
         </>
