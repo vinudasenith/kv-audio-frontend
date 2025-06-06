@@ -11,6 +11,8 @@ import AdminUsersPage from "./adminUsersPage";
 import AdminOrdersPage from "./adminOrdersPage";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import AdminReviewPage from "./adminReviewPage";
+import { MdOutlineReviews } from "react-icons/md"
 
 export default function AdminPage() {
     const [userValidated, setUserValidated] = useState(false);
@@ -60,6 +62,12 @@ export default function AdminPage() {
                     <RiAlignItemBottomLine /> Items
                 </Link>
                 <Link
+                    to="/admin/reviews"
+                    className="w-full h-[45px] text-[20px] font-semibold flex items-center gap-3 px-3 rounded-lg hover:bg-yellow-400 hover:text-black transition duration-200"
+                >
+                    <MdOutlineReviews /> Reviews
+                </Link>
+                <Link
                     to="/admin/users"
                     className="w-full h-[45px] text-[20px] font-semibold flex items-center gap-3 px-3 rounded-lg hover:bg-yellow-400 hover:text-black transition duration-200"
                 >
@@ -77,6 +85,7 @@ export default function AdminPage() {
                     <Route path="/items/add" element={<AddItemPage />} />
                     <Route path="/user" element={<h1>User</h1>} />
                     <Route path="/items/edit" element={<UpdateItemPage />} />
+                    <Route path="/reviews" element={<AdminReviewPage />} />
 
 
 
