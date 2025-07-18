@@ -63,10 +63,6 @@ export default function MobileNavPanel({ isOpen, setOpen }) {
                         <div onClick={() => goTo("/contact")} className="text-[20px] text-accent font-semibold px-4 py-3 flex items-center gap-3 hover:bg-gray-100 cursor-pointer">
                             <MdContacts className="text-2xl" /> Contact
                         </div>
-
-                        <div onClick={() => goTo("/about")} className="text-[20px] text-accent font-semibold px-4 py-3 flex items-center gap-3 hover:bg-gray-100 cursor-pointer">
-                            <MdInfoOutline className="text-2xl" /> About
-                        </div>
                     </div>
                 </div>
             )}

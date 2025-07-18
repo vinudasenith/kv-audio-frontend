@@ -43,6 +43,20 @@ export default function ProductCard({ item }) {
                         View Details
                     </Link>
                 </div>
+
+            </div>
+            <div className="fixed bottom-4 right-4 z-50">
+                <Link to="/reviews">
+                    <button className="bg-yellow-400 text-black px-6 py-3 rounded-xl font-semibold hover:bg-yellow-500 transition duration-300">
+                        View Reviews
+                    </button>
+
+
+
+                </Link>
+
+
+
             </div>
         </div>
 
