@@ -11,7 +11,7 @@ export default function Header() {
     return (
         <header className="w-full h-[110px] shadow-lg flex items-center justify-between px-6 md:px-12 bg-gradient-to-r from-black via-[#1a1a1a] to-yellow-500 text-white relative z-50">
 
-
+            {/* Logo Section */}
             <div className="flex items-center gap-4">
                 <img
                     src="/logo.png"
@@ -23,7 +23,7 @@ export default function Header() {
                 </span>
             </div>
 
-
+            {/* Desktop Navigation */}
             <nav className="hidden md:flex gap-10 font-medium text-lg">
                 <Link to="/home" className="hover:text-yellow-250 transition">
                     Home
@@ -39,17 +39,18 @@ export default function Header() {
                 </Link>
             </nav>
 
-
+            {/* Action Buttons */}
             <div className="flex items-center gap-4 md:gap-6">
 
+                {/* Cart Icon */}
                 <Link to="/booking" className="text-2xl hover:text-yellow-300 transition">
                     <FaCartShopping />
                 </Link>
 
-
-                {token !== null && (
+                {/* Auth Buttons */}
+                {token ? (
                     <button
-                        className="hidden md:inline-block bg-yellow-400 text-black text-sm font-semibold px-4 py-2 rounded hover:bg-yellow-300 transition"
+                        className="hidden md:inline-block bg-yellow-400 hover:bg-yellow-300 text-black font-semibold px-4 py-2 rounded transition-colors"
                         onClick={() => {
                             localStorage.removeItem("token");
                             window.location.href = "/login";
@@ -57,6 +58,22 @@ export default function Header() {
                     >
                         Logout
                     </button>
+                ) : (
+
+                    <div className="hidden md:flex gap-3">
+                        <Link
+                            to="/login"
+                            className="bg-transparent border border-yellow-400 hover:bg-yellow-400 hover:text-black text-yellow-400 font-semibold px-4 py-2 rounded transition-colors"
+                        >
+                            Login
+                        </Link>
+                        <Link
+                            to="/signup"
+                            className="bg-yellow-400 hover:bg-yellow-300 text-black font-semibold px-4 py-2 rounded transition-colors"
+                        >
+                            Sign Up
+                        </Link>
+                    </div>
                 )}
 
 
@@ -65,6 +82,8 @@ export default function Header() {
                     onClick={() => setNavPanelOpen(true)}
                 />
             </div>
+
+
 
 
             <MobileNavPanel isOpen={navPanelOpen} setOpen={setNavPanelOpen} />
