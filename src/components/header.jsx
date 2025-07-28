@@ -68,7 +68,7 @@ export default function Header() {
                             Login
                         </Link>
                         <Link
-                            to="/signup"
+                            to="/register"
                             className="bg-yellow-400 hover:bg-yellow-300 text-black font-semibold px-4 py-2 rounded transition-colors"
                         >
                             Sign Up
