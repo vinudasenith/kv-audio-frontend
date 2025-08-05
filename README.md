@@ -39,7 +39,7 @@ Audio-Lights-Rent is a full-stack rental service built using the **MERN stack** 
 
 1. **Clone the Repository**
    ```bash
-   git clone https://github.com/vinudasenith/audio-lights-rent-frontend.git
+   git clone https://github.com/vinudasenith/kv-audio-frontend.git
    cd audio-lights-rent-frontend
    ```
 
