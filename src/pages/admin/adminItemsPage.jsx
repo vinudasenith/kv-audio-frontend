@@ -4,10 +4,8 @@ import { FaCirclePlus } from "react-icons/fa6";
 import { FaEdit, FaTrash } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 
-// Fallback sample data
-
-
 export default function AdminItemsPage() {
+    //state variables
     const [items, setItems] = useState([]);
     const [itemsLoaded, setItemsLoaded] = useState(false);
     const navigate = useNavigate();
@@ -25,6 +23,7 @@ export default function AdminItemsPage() {
         });
     }, [itemsLoaded]);
 
+    //handle delete
     const handleDelete = (key) => {
         if (window.confirm("Are you sure you want to delete this item?")) {
             setItems(items.filter((item) => item.key !== key));

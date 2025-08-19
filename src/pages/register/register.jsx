@@ -1,10 +1,10 @@
 import axios from "axios";
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
 import toast from "react-hot-toast";
 
 export default function RegisterPage() {
+    //state variables
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [firstName, setFirstName] = useState("");
@@ -13,6 +13,7 @@ export default function RegisterPage() {
     const [phone, setPhone] = useState("");
     const navigate = useNavigate();
 
+    //submit registration form
     const handleOnSubmit = (e) => {
         e.preventDefault();
         console.log({ email, password, firstName, lastName, address, phone });

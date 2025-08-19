@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { IoMdCloseCircleOutline } from "react-icons/io";
 
 export default function AdminOrdersPage() {
+    // State variables
     const [orders, setOrders] = useState([]);
     const [loading, setLoading] = useState(true);
     const [activeOrder, setActiveOrder] = useState(null);
@@ -33,6 +34,7 @@ export default function AdminOrdersPage() {
         }
     }, [loading]);
 
+    // Function to handle order status change
     function handleOrderStatusChange(orderId, status) {
         const token = localStorage.getItem("token");
 

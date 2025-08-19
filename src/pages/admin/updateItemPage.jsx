@@ -8,6 +8,7 @@ export default function UpdateItemPage() {
     const location = useLocation()
     console.log(location)
 
+    //state variables
     const [productKey, setProductKey] = useState(location.state.key);
     const [productName, setProductName] = useState(location.state.name);
     const [productPrice, setProductPrice] = useState(location.state.price);
@@ -18,6 +19,7 @@ export default function UpdateItemPage() {
     const navigate = useNavigate();
 
 
+    //handles update items
     async function handleUpdateItem() {
 
         let updatingImages = location.state.image

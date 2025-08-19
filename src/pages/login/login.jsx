@@ -3,27 +3,12 @@ import "./login.css";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
-import { useGoogleLogin } from "@react-oauth/google";
 
 export default function LoginPage() {
+    //state variables
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
-    const googleLogin = useGoogleLogin(
-        {
-            onSuccess: (res) => {
-                console.log(res)
-                axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/users/google`, {
-                    accessToken: res.access_token
-                }
-                ).then((res) => {
-                    console.log(res)
-                }).catch((err) => {
-                    console.log(err)
-                })
-            }
-        }
-    )
 
 
     function handleOnSubmit(e) {
@@ -39,21 +24,11 @@ export default function LoginPage() {
             const user = res.data.user
             localStorage.setItem("token", res.data.token)
 
-
-            if (user.emailVerified === false) {
-                navigate("/verify-email")
-                return
-            }
-
-
-
             if (user.role === "admin") {
                 navigate("/admin/")
             } else {
                 navigate("/")
             }
-
-
 
 
         }).catch((err) => {
@@ -66,6 +41,7 @@ export default function LoginPage() {
 
     return (
         <div className="bg-picture w-full h-screen  flex justify-center items-center">
+            {/* login form */}
             <form onSubmit={handleOnSubmit}>
                 <div className="w-[400px] h-[400px] backdrop-blur-xl rounded-2xl flex justify-center items-center flex-col relative">
                     <img
@@ -98,9 +74,6 @@ export default function LoginPage() {
                     <button className="my-8 w-[300px] h-[50px] bg-[#efac38] text-2xl text-white rounded-lg">
                         Login
                     </button>
-                    <div className="my-8 w-[300px] h-[50px] bg-[#efac38] text-2xl text-white rounded-lg cursor-pointer" onClick={googleLogin}>
-                        Login with Google
-                    </div>
                 </div>
             </form>
         </div>

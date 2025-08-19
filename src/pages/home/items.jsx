@@ -4,6 +4,7 @@ import toast from "react-hot-toast";
 import ProductCard from "../../components/productCard";
 
 export default function Items() {
+    //state variables
     const [state, setState] = useState("loading");
     const [items, setItems] = useState([]);
 

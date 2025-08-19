@@ -4,8 +4,10 @@ import { addToCart, removeFromCart } from "../utils/cart";
 import { FaArrowDown, FaArrowUp, FaTrash } from "react-icons/fa";
 
 export default function BookingItem({ itemKey, qty, refresh }) {
+    //state variables
     const [item, setItem] = useState(null);
     const [status, setStatus] = useState("loading"); // loading, success, error
+
 
     useEffect(() => {
         if (status === "loading") {

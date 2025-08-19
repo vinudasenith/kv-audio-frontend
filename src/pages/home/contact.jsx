@@ -9,7 +9,7 @@ export default function Contact() {
                     Have questions about our sound system rentals? Reach out and we'll get back to you as soon as possible!
                 </p>
 
-
+                {/* Contact Form */}
                 <form className="grid grid-cols-1 gap-6 bg-[#2a2a2a] p-6 rounded-lg shadow-lg">
                     <div>
                         <label className="block text-sm font-medium mb-1">Full Name</label>
@@ -43,7 +43,7 @@ export default function Contact() {
                     </button>
                 </form>
 
-
+                {/* Contact Information */}
                 <div className="mt-12 text-center space-y-4">
                     <p className="text-gray-300">
                         📞 Phone: <span className="text-yellow-400 font-medium">+94 (0) (800) 5555</span>

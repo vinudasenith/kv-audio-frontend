@@ -52,6 +52,8 @@ export default function AdminUsersPage() {
                 <p className="text-center text-gray-500 italic">Loading...</p>
             ) : (
                 <div className="overflow-x-auto">
+
+                    {/* User managing Table */}
                     <table className="min-w-full bg-white border border-gray-300 rounded-xl shadow-lg">
                         <thead className="bg-gray-100 text-gray-700">
                             <tr className="text-sm font-semibold uppercase tracking-wide">

@@ -16,6 +16,8 @@ import { MdOutlineReviews } from "react-icons/md"
 
 export default function AdminPage() {
     const [userValidated, setUserValidated] = useState(false);
+
+
     useEffect(() => {
         const token = localStorage.getItem("token");
         if (!token) {
@@ -38,7 +40,10 @@ export default function AdminPage() {
             console.error(err);
             setUserValidated(false);
         })
+
     }, [])
+
+
     return (
         <div className="w-full h-screen flex">
 

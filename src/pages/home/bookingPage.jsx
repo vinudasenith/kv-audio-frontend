@@ -5,17 +5,21 @@ import axios from "axios";
 import toast from "react-hot-toast";
 
 export default function BookingPage() {
+    //state variables
     const [cart, setCart] = useState(loadCart());
     const [startingDate, setStartingDate] = useState(formatDate(new Date()));
     const [endingDate, setEndingDate] = useState(formatDate(new Date(Date.now() + 24 * 60 * 60 * 1000)));
     const [total, setTotal] = useState(0);
     const daysBetween = Math.max((new Date(endingDate) - new Date(startingDate)) / (1000 * 60 * 60 * 24), 1);
 
+    //reload carts and calculate total
     function reloadCart() {
         setCart(loadCart());
         calculateTotal();
 
     }
+
+    //calculate total by sending cart info
     function calculateTotal() {
         const cartInfo = loadCart();
         cartInfo.startingDate = startingDate;
@@ -31,10 +35,12 @@ export default function BookingPage() {
         })
     }
 
+    //recalculate total when date changes
     useEffect(() => {
         calculateTotal();
     }, [startingDate, endingDate])
 
+    //handle booking creation
     function handleBookingCreation() {
         const cart = loadCart();
         cart.startingDate = startingDate;

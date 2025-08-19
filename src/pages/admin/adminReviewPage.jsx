@@ -3,6 +3,7 @@ import axios from "axios";
 import { FaCheck, FaTrash, FaTimes } from "react-icons/fa";
 
 export default function AdminReviewPage() {
+    //state variables
     const [reviews, setReviews] = useState([]);
     const [loading, setLoading] = useState(true);
 
@@ -28,6 +29,7 @@ export default function AdminReviewPage() {
         fetchReviews();
     }, []);
 
+    //handle delete reviews
     const handleDelete = async (email) => {
         if (!window.confirm("Are you sure you want to delete this review?")) return;
 
@@ -47,6 +49,7 @@ export default function AdminReviewPage() {
         }
     };
 
+    //handle approve
     const handleApprove = async (email) => {
         try {
             const token = localStorage.getItem("token");
@@ -75,6 +78,7 @@ export default function AdminReviewPage() {
                 <p className="text-center text-gray-500 italic">Loading...</p>
             ) : (
                 <div className="overflow-x-auto">
+                    {/* Table */}
                     <table className="min-w-full bg-white border border-gray-300 rounded-xl shadow-lg">
                         <thead className="bg-gray-100 text-gray-700">
                             <tr className="text-sm font-semibold uppercase tracking-wide">

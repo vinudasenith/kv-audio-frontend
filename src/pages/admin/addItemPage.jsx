@@ -6,6 +6,7 @@ import mediaUpload from "../../utils/mediaUpload";
 
 
 export default function AddItemPage() {
+    //state variables
     const [productKey, setProductKey] = useState("");
     const [productName, setProductName] = useState("");
     const [productPrice, setProductPrice] = useState(0);
@@ -15,40 +16,25 @@ export default function AddItemPage() {
     const [productImages, setProductImages] = useState([]);
     const navigate = useNavigate();
 
+    //handles add item
     async function handleAddItem() {
         const promises = [];
 
+        //upload images
         for (let i = 0; i < productImages.length; i++) {
 
             console.log(productImages[i]);
             const promise = mediaUpload(productImages[i]);
             promises.push(promise);
-            // if(i==25){
-            //     toast.error("You can only upload 25 images at a time");
-            //     break;
-            // }
         }
-
-
-
-
-
-
 
         console.log(productKey, productName, productPrice, productCategory, productDimension, productDescription);
 
         const token = localStorage.getItem("token");
 
+
         if (token) {
             try {
-
-                // Promise.all(promises).then(() => {
-                // console.log(result)
-
-                // }).catch((err) => {
-                //     toast.error(err);
-                // })
-
                 const imageUrls = await Promise.all(promises);
 
                 const result = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/products`, {
