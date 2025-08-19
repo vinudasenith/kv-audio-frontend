@@ -1,6 +1,6 @@
 # 🎧 KV-Audio Frontend
 
-![App homepage](https://github.com/vinudasenith/kv-audio-frontend/blob/main/screenshots/Screenshot_3-8-2025_223423_localhost.jpeg?raw=true)
+![App homepage](https://github.com/vinudasenith/kv-audio-frontend/blob/main/webapp-shots/home%20page.jpeg)
 
 ## 📖 Overview
 
@@ -91,10 +91,27 @@ KV-AUDIO-FRONTEND/
 This project is licensed under the [MIT License](LICENSE).
 
 ##  📸 Screenshots of webpage
-![product overview page](https://github.com/vinudasenith/kv-audio-frontend/blob/main/screenshots/Screenshot_3-8-2025_223447_localhost.jpeg)
-![contact page](https://github.com/vinudasenith/kv-audio-frontend/blob/main/screenshots/Screenshot_3-8-2025_22355_localhost.jpeg)
-![gallery page](https://github.com/vinudasenith/kv-audio-frontend/blob/main/screenshots/Screenshot_3-8-2025_223455_localhost.jpeg)
-![admin item page](https://github.com/vinudasenith/kv-audio-frontend/blob/main/screenshots/Screenshot_5-8-2025_182427_localhost.jpeg)
-![admin user page](https://github.com/vinudasenith/kv-audio-frontend/blob/main/screenshots/Screenshot_5-8-2025_182434_localhost.jpeg)
-![admin review](https://github.com/vinudasenith/kv-audio-frontend/blob/main/screenshots/Screenshot_5-8-2025_182443_localhost.jpeg)
-![admin add item page](https://github.com/vinudasenith/kv-audio-frontend/blob/main/screenshots/Screenshot_5-8-2025_182453_localhost.jpeg)
+![registration page](https://github.com/vinudasenith/kv-audio-frontend/blob/main/webapp-shots/user%20registration.jpeg)
+
+![user login page](https://github.com/vinudasenith/kv-audio-frontend/blob/main/webapp-shots/user%20login.jpeg)
+
+![admin item page](https://github.com/vinudasenith/kv-audio-frontend/blob/main/webapp-shots/admin%20items%20%20managment.jpeg)
+
+![admin user page](https://github.com/vinudasenith/kv-audio-frontend/blob/main/webapp-shots/admin%20user%20managment.jpeg)
+
+![admin order page](https://github.com/vinudasenith/kv-audio-frontend/blob/main/webapp-shots/admin%20order%20managment.jpeg)
+
+![admin review](https://github.com/vinudasenith/kv-audio-frontend/blob/main/webapp-shots/admin%20review%20managment.jpeg)
+
+![admin add item page](https://github.com/vinudasenith/kv-audio-frontend/blob/main/webapp-shots/admin%20add%20item%20page.jpeg)
+
+![rentals page](https://github.com/vinudasenith/kv-audio-frontend/blob/main/webapp-shots/rentals%20products.jpeg)
+
+![product overview page](https://github.com/vinudasenith/kv-audio-frontend/blob/main/webapp-shots/product%20overview.jpeg)
+
+![cart page](https://github.com/vinudasenith/kv-audio-frontend/blob/main/webapp-shots/add%20to%20cart.jpeg)
+
+![gallery page](https://github.com/vinudasenith/kv-audio-frontend/blob/main/webapp-shots/gallery.jpeg)
+
+![contact page](https://github.com/vinudasenith/kv-audio-frontend/blob/main/webapp-shots/contact%20us.jpeg)
+
